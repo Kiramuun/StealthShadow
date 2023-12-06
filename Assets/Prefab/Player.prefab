@@ -626,7 +626,7 @@ Transform:
   m_GameObject: {fileID: 4927648759572141138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -642,8 +642,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8822588981014709228}
-  - component: {fileID: 8085977996771175077}
-  - component: {fileID: 5369390883927188417}
+  - component: {fileID: -5046814880960183644}
+  - component: {fileID: 3538125560338112178}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -667,7 +667,78 @@ Transform:
   - {fileID: 5183304693611782967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &8085977996771175077
+--- !u!114 &-5046814880960183644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393219010734383191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661a711ffe410d548828176008c83602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouv:
+    m_Name: Mouv
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 373f5a26-bc90-4726-9471-f4bd900deb4d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: c283b77a-f1f4-4c38-af19-f01a2dd2bb26
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouv
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 81536ab1-d7d5-4673-a2b9-f697b5904aea
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouv
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 2346034a-e8fa-4108-b733-5fec26038a53
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouv
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 6073ebd2-c8ef-4e21-9aaa-a739068bf09c
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouv
+      m_Flags: 8
+    - m_Name: right
+      m_Id: c113d619-fc83-43bc-a641-036e8778d42b
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouv
+      m_Flags: 8
+    m_Flags: 0
+  _jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 37519c68-734f-4717-99ff-5bbc97b68d9d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _speed: 100
+--- !u!143 &3538125560338112178
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -692,31 +763,4 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5369390883927188417
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8393219010734383191}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Center: {x: 0, y: 1, z: 0}
