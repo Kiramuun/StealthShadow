@@ -8,8 +8,9 @@ public class Mouvement : MonoBehaviour
     private InputAction _mouv;
     public InputActionAsset _inputAA;
 
-    [SerializeField] private float _speed,
-                                   _gravity;
+    public float _speed,
+                 _speedRotate = 0.1f,
+                 _gravity;
     Vector3 _velocity;
     CharacterController _charactControl;
 
@@ -22,12 +23,11 @@ public class Mouvement : MonoBehaviour
 
     void Update()
     {
-        
-
         if (_charactControl.isGrounded)
         {
             var mouvDir = _mouv.ReadValue<Vector2>();
             Vector3 dir = new Vector3(mouvDir.x, 0, mouvDir.y) * _speed * Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), _speedRotate);
             _charactControl.Move(dir);
         }
         else
@@ -36,4 +36,5 @@ public class Mouvement : MonoBehaviour
             _charactControl.Move(_velocity * Time.deltaTime);
         }
     }
+
 }
