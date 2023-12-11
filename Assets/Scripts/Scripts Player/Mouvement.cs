@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,10 +14,12 @@ public class Mouvement : MonoBehaviour
                  _gravity;
     Vector3 _velocity;
     CharacterController _charactControl;
+    GameObject _cineFreeLook;
 
     void Awake()
     {
         _charactControl = GetComponent<CharacterController>();
+        _cineFreeLook = GameObject.Find("FreeLook Camera");
         _mouv = _inputAA.FindActionMap("Default").FindAction("Mouv");
         _mouv.Enable();
     }
@@ -26,8 +29,13 @@ public class Mouvement : MonoBehaviour
         if (_charactControl.isGrounded)
         {
             var mouvDir = _mouv.ReadValue<Vector2>();
-            Vector3 dir = new Vector3(mouvDir.x, 0, mouvDir.y) * _speed * Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), _speedRotate);
+            Vector3 z = Camera.main.transform.forward * mouvDir.y;
+            Vector3 x = Camera.main.transform.right * mouvDir.x;
+            z.y = 0;
+            x.y = 0;
+            Vector3 dir = (z + x) * _speed * Time.deltaTime;
+            
+            if (dir.sqrMagnitude > 0) { transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), _speedRotate); }
             _charactControl.Move(dir);
         }
         else

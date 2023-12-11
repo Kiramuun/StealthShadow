@@ -7,15 +7,17 @@ public class Marche : MonoBehaviour
 {
     InputAction _marche;
     public InputActionAsset _inputAA;
+    Mouvement _mouvement;
 
     void Awake()
     {
         _marche = _inputAA.FindActionMap("Default").FindAction("Marche");
+        _mouvement = gameObject.GetComponent<Mouvement>();
     }
 
     void Update()
     {
-        /*if (_marche != null) { gameObject.GetComponent<Mouvement>()._speed /= 2f; }
-        else { gameObject.GetComponent<Mouvement>()._speed *= 2f; }*/
+        /*if (_marche != null) { _mouvement._speed /= 2f; }
+        else { _mouvement._speed *= 2f; }*/
     }
 }
