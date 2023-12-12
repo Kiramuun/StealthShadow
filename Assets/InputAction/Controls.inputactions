@@ -16,21 +16,21 @@
                 },
                 {
                     "name": "Marche",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "cdbecf40-d055-40ec-a315-75b8e219217d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Sprint",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "f020755e-8eb6-4c21-a950-5eba2e499b10",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",

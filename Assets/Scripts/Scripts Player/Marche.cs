@@ -15,9 +15,9 @@ public class Marche : MonoBehaviour
         _mouvement = gameObject.GetComponent<Mouvement>();
     }
 
-    void Update()
+    public void OnMarche(InputAction.CallbackContext context)
     {
-        /*if (_marche != null) { _mouvement._speed /= 2f; }
-        else { _mouvement._speed *= 2f; }*/
+        if (context.started) { _mouvement._speed /= 2.5f; }
+        if (context.canceled) { _mouvement._speed *= 2.5f; }
     }
 }

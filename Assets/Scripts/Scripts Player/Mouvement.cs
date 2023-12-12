@@ -14,12 +14,11 @@ public class Mouvement : MonoBehaviour
                  _gravity;
     Vector3 _velocity;
     CharacterController _charactControl;
-    GameObject _cineFreeLook;
+
 
     void Awake()
     {
         _charactControl = GetComponent<CharacterController>();
-        _cineFreeLook = GameObject.Find("FreeLook Camera");
         _mouv = _inputAA.FindActionMap("Default").FindAction("Mouv");
         _mouv.Enable();
     }
