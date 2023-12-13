@@ -8,6 +8,7 @@ public class Accroupie : MonoBehaviour
     InputAction _crouch;
     public InputActionAsset _inputAA;
     public MeshRenderer _renderer;
+    public Color _color;
     
     void Awake()
     {
@@ -17,5 +18,7 @@ public class Accroupie : MonoBehaviour
     public void OnSneak(InputAction.CallbackContext context)
     {
         if (context.started) { _renderer.material.color = Color.red; }
+        if (context.canceled) { _renderer.material.color = _color; }
     }
+
 }
