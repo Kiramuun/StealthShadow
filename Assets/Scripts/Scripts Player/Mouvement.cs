@@ -14,6 +14,7 @@ public class Mouvement : MonoBehaviour
                  _gravity;
     Vector3 _velocity;
     CharacterController _charactControl;
+    public Animator _animatorRef;
 
 
     void Awake()
@@ -36,12 +37,15 @@ public class Mouvement : MonoBehaviour
             
             if (dir.sqrMagnitude > 0) { transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), _speedRotate); }
             _charactControl.Move(dir);
+            _animatorRef.SetFloat("Speed", _speed);
+            
         }
         else
         {
             _velocity.y += _gravity * Time.deltaTime;
             _charactControl.Move(_velocity * Time.deltaTime);
         }
+        
     }
 
 }
